@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@src/*": ["./src/*"],
+            "@styles/*": ["./src/assets/styles/*"],
+            "@common/*": ["./src/presentation/common/*"],
+            "@shared/*": ["./src/presentation/shared/*"]
+        }
+    }
+}

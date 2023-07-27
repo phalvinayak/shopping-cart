@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Breadcrumb, Button, Layout } from 'antd';
+import { Content, Footer } from 'antd/es/layout/layout';
+import style from './App.less';
+import Header from '@src/presentation/shared/Header';
+import { Outlet } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function App(): JSX.Element {
+    return (
+        <Layout>
+            <Header />
+            <Content className={style.container}>
+                <Layout className={style.layout}>
+                    <Content>
+                        <Outlet />
+                    </Content>
+                </Layout>
+            </Content>
+            <Footer className={style.footer}>
+                Shopping Cart ©2023 Created by @phalvinayak
+            </Footer>
+        </Layout>
+    );
 }
 
 export default App;
