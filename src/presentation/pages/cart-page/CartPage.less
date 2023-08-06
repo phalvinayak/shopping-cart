@@ -1,0 +1,39 @@
+.container {
+    .cartWrapper {
+        display: flex;
+        gap: 1.5rem;
+
+        .cartProducts {
+            flex: 1 1 auto;
+            padding: 1rem;
+            border: 1px solid lightgrey;
+            border-radius: 0.75rem;
+        }
+
+        .cartSummary {
+            flex: 0 0 20rem;
+            padding: 1.5rem 1rem;
+            border: 1px solid lightgrey;
+            border-radius: 0.75rem;
+
+            &.payment {
+                background: #3b71ca;
+                color: white;
+
+                :global {
+                    h3.ant-typography {
+                        color: white;
+                    }
+
+                    .ant-divider {
+                        border-color: #6c95d7;
+                    }
+                }
+            }
+        }
+    }
+
+    .editCart {
+        margin: 1rem 0 0;
+    }
+}

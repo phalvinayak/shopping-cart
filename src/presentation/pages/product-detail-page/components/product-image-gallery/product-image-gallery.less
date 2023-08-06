@@ -1,0 +1,35 @@
+.gallery {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    .productImgfulliew {
+        align-self: center;
+        :global {
+            img {
+                height: 25rem;
+            }
+        }
+    }
+    .productImgPreview {
+        display: flex;
+        margin: 1rem 0;
+        gap: 0.5rem;
+
+        :global {
+            .ant-image {
+                padding: 0.25rem;
+                border: 0.125rem solid white;
+                align-self: center;
+                cursor: pointer;
+            }
+
+            .ant-image.selected {
+                border-color: black;
+            }
+
+            img {
+                max-height: 6.25rem;
+            }
+        }
+    }
+}

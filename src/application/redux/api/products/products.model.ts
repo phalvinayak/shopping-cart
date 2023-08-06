@@ -2,7 +2,7 @@ import { BaseFilterModel } from '@src/application/redux/models/base-filter.model
 import { BaseResponseModel } from '@src/application/redux/models/base-response.model';
 
 export interface ProductList extends BaseResponseModel {
-    readonly products: Product[];
+    readonly products: Product[] | ProductLite[];
 }
 
 export interface Product {
@@ -18,6 +18,12 @@ export interface Product {
     readonly thumbnail: string;
     readonly images: string[];
 }
+
+export type ProductLite = Omit<Product, 'images' | 'discountPercentage'>;
+
+export type CartProduct = ProductLite & {
+    count: number;
+};
 
 export interface ProductSearch extends BaseFilterModel {
     q?: string;

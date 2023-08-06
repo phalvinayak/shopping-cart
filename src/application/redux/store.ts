@@ -16,11 +16,11 @@ import {
 } from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage';
 import { productsApi } from '@src/application/redux/api/products/products.api';
-import {
-    getResponseHeader,
-    logRequestError,
-} from '@src/application/redux/store.util';
+import { logRequestError } from '@src/application/redux/store.util';
 import { DEFAULT_FETCH_POLICY } from '@src/application/models/constants/common.constants';
+import { cartSlice } from '@src/application/redux/api/cart/cart.slice';
+import { wishlistSlice } from '@src/application/redux/api/favorites/wishlist.slice';
+import { breadcrumbSlice } from '@src/application/redux/api/breadcrumb/breadcrumb.slice';
 
 const preloadedState = {
     ...window.mycart?.initialState,
@@ -30,12 +30,15 @@ const persistConfig = {
     key: 'root',
     version: 1,
     storage,
-    whitelist: [],
+    whitelist: [cartSlice.name, wishlistSlice.name],
 };
 
 const persistedReducer = persistReducer(
     persistConfig,
     combineReducers({
+        [cartSlice.name]: cartSlice.reducer,
+        [wishlistSlice.name]: wishlistSlice.reducer,
+        [breadcrumbSlice.name]: breadcrumbSlice.reducer,
         [productsApi.reducerPath]: productsApi.reducer,
     })
 );
@@ -81,4 +84,4 @@ export const Persistor = persistStore(store);
 
 export type RootState = ReturnType<typeof store.getState>;
 
-export type ApplicationDispatch = typeof store.dispatch;
+export type AppDispatch = typeof store.dispatch;

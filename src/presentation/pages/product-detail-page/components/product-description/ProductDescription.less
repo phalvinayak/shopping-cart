@@ -1,0 +1,51 @@
+.container {
+    :global {
+        p {
+            margin: 0 0 0.5rem;
+            font-size: 1rem;
+        }
+    }
+
+    .rating {
+        margin: 0 0 0.5rem;
+        display: flex;
+        align-items: center;
+
+        .number {
+            font-size: 1rem;
+            margin: 0 0.25rem 0 0;
+        }
+
+        .ratingIcon {
+            width: 1rem;
+        }
+    }
+
+    .description {
+        display: flex;
+        flex-shrink: 1;
+    }
+
+    .finalPrice {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #399139;
+        margin: 0 0 0 1rem;
+    }
+
+    .originalPrice {
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: #e0401c;
+        text-decoration: line-through;
+    }
+
+    .addToCart {
+        margin: 1.5rem 0 0;
+    }
+
+    .actionBtns {
+        display: flex;
+        gap: 2rem;
+    }
+}

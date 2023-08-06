@@ -1,0 +1,50 @@
+.container {
+    .summary {
+        .row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.125rem;
+            margin: 0 0 0.5rem;
+        }
+    }
+
+    .cardTypes {
+        width: 12rem;
+        margin: 0 0 1rem;
+    }
+
+    .cartTypesText {
+        font-size: 1.125rem;
+        margin: 0 0 0.5rem;
+    }
+
+
+    .paymentForm {
+        :global {
+            .ant-space-item {
+                margin: 0 0 0.5rem;
+            }
+
+            input {
+                padding: 0.5rem;
+                font-size: 1.125rem;
+                border-radius: 0;
+                background: #3b71ca;
+                color: white;
+
+                &::placeholder {
+                    color: white;
+                }
+            }
+        }
+    }
+
+    .placeOrderBtn {
+        background-color: #54b4d3;
+
+        &:active,
+        &:hover {
+            background-color: #50abc8;
+        }
+    }
+}

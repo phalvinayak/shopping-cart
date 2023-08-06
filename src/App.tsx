@@ -1,22 +1,27 @@
-import { Breadcrumb, Button, Layout } from 'antd';
+import { HeartTwoTone } from '@ant-design/icons';
+import XBreadcrumb from '@src/presentation/shared/components/breadcrumb/XBreadcrumb';
+import XHeader from '@src/presentation/shared/components/header/XHeader';
+import { Layout } from 'antd';
 import { Content, Footer } from 'antd/es/layout/layout';
-import style from './App.less';
-import Header from '@src/presentation/shared/Header';
-import { Outlet } from 'react-router-dom';
+import { Outlet, ScrollRestoration } from 'react-router-dom';
+import styles from './App.less';
 
 function App(): JSX.Element {
     return (
         <Layout>
-            <Header />
-            <Content className={style.container}>
-                <Layout className={style.layout}>
+            <XHeader />
+            <ScrollRestoration />
+            <Content className={styles.container}>
+                <XBreadcrumb />
+                <Layout className={styles.layout}>
                     <Content>
                         <Outlet />
                     </Content>
                 </Layout>
             </Content>
-            <Footer className={style.footer}>
-                Shopping Cart ©2023 Created by @phalvinayak
+            <Footer className={styles.footer}>
+                Shopping Cart ©{new Date().getFullYear()} | Made with{' '}
+                <HeartTwoTone twoToneColor="#eb2f96" /> by @phalvinayak
             </Footer>
         </Layout>
     );

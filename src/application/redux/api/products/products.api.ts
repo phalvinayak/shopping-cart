@@ -1,6 +1,9 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
 import {
     GET_PRODUCTS,
+    GET_PRODUCTS_BY_CATEGORY,
+    GET_PRODUCTS_BY_SEARCH_TERM,
+    GET_PRODUCT_CATEGORIES,
     GET_SINGLE_PRODUCTS,
     PRODUCTS_API_BASE,
 } from '@src/application/redux/api/products/products.constant';
@@ -35,8 +38,43 @@ export const productsApi = createApi({
                 };
             },
         }),
+        getProductsByCategory: build.query<ProductList, string>({
+            query: (productCategory: string) => {
+                return {
+                    url: GET_PRODUCTS_BY_CATEGORY.replace(
+                        ':category',
+                        productCategory
+                    ),
+                    method: 'GET',
+                };
+            },
+        }),
+        getCategories: build.query<string[], void>({
+            query: () => {
+                return {
+                    url: GET_PRODUCT_CATEGORIES,
+                    method: 'GET',
+                };
+            },
+        }),
+        getSearchProducts: build.query<ProductList, string>({
+            query: (query: string) => {
+                return {
+                    url: GET_PRODUCTS_BY_SEARCH_TERM,
+                    method: 'GET',
+                    params: {
+                        q: query
+                    }
+                }
+            }
+        })
     }),
 });
 
-export const { useLazyGetListOfProductsQuery, useGetProductQuery } =
-    productsApi;
+export const {
+    useLazyGetListOfProductsQuery,
+    useGetProductQuery,
+    useGetProductsByCategoryQuery,
+    useGetCategoriesQuery,
+    useGetSearchProductsQuery,
+} = productsApi;
